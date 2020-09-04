@@ -7,3 +7,34 @@ There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner
 
 ### Justification of the solution:
 **Here we will write the design statement: How, where, why**
+
+## Development:
+
+###First test for a text based store:
+```
+from datetime import datetime
+date=datetime.today()
+name=input("Hello, what is your name? ")
+print("Welcome to Mr Sakamoto's store {}".format(name))
+#print("The time is: {}".format(date))
+print("""
+Today's deals:
+1. RAM   
+2. CPU
+3. Motherboard
+4. GPU
+=================
+"""
+)
+option=int(input("select an option 1-4: "))
+if option==1:
+  print("RAM")
+elif option==2:
+  print("CPU")
+elif option==3:
+  print("Motherboard")
+elif option==4:
+  print("GPU")
+else:
+  print("The item number {} does not exist".format(option))
+  ```
