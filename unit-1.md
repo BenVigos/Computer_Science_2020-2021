@@ -26,15 +26,21 @@ Today's deals:
 =================
 """
 )
-option=int(input("select an option 1-4: "))
-if option==1:
-  print("RAM")
-elif option==2:
-  print("CPU")
-elif option==3:
-  print("Motherboard")
-elif option==4:
-  print("GPU")
-else:
-  print("The item number {} does not exist".format(option))
+
+while True:
+  option=input("select an option 1-4: ")
+  if option=="1":
+    print("RAM")
+    break
+  elif option=="2":
+    print("CPU")
+    break
+  elif option=="3":
+    print("Motherboard")
+    break
+  elif option=="4":
+    print("GPU")
+    break
+  else:
+    print("The item number {} does not exist".format(option))
   ```
