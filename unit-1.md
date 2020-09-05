@@ -55,10 +55,13 @@ while True:
     print("The item number {} does not exist".format(option))
   ```
 ### Second test:
-* Continued the program to the point where a payment would be made
-* Tried to automate some of the processes.
-* Reduced the length of the code by getting rid of repetitions
-* tried to make a check_input function. Failed
+* Continued the program to the point where a payment would be made.
+* Added lists so items can easily be added and removed.
+* Automated some of the processes.
+* Tried to make it fool proof. No input can break it.
+* Reduced the length of the code by getting rid of repetitions.
+* Tried to make a check_input function. Failed.
+
 
 
 ```
