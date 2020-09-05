@@ -1,6 +1,7 @@
 # Test Three:
 ### What's new:
 * Tried to make a ckeck_input function, failed
+* Added an inventory
 * Alligned the text
 
 
