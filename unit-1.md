@@ -9,6 +9,7 @@ There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner
 **Here we will write the design statement: How, where, why**
 
 ## Development:
+(only major updates are recorded here, to find more tests go to the folder called "tests")
 
 ### First test for a text based store:
 ```
@@ -52,24 +53,13 @@ while True:
 
   else:
     print("The item number {} does not exist".format(option))
-  
-amount=int(input("How many do you want? "))
-print("It will cost {} Bitcoin".format(price*amount))
-
-while True:
-  proceed=input("Would you like to proceed? Yes or No: ")
-
-  if proceed=="Yes":
-    print("cool")
-    break
-  elif proceed=="No":
-    print("Aww :'(")
-    break
-  else:
-    print("Invalid input. Type 'Yes' or 'No'")
   ```
 ### Second test:
-Tried to automate some of the processes, reduce the length of the code and make it look nicer
+* Continued the program to the point where a payment would be made
+* Tried to automate some of the processes.
+* Reduced the length of the code by getting rid of repetitions
+* tried to make a check_input function. Failed
+
 
 ```
 from datetime import datetime
@@ -79,36 +69,66 @@ def new_topic():
       ===================
       """)
 
+#def check_input(question,num,answer_pos,answer_neg):
+#   x = 1
+#    while x == 1:
+#        inp = input(question)
+#        print(inp)
+#        for i in range(num):
+#            if inp==str(i):
+#                print(i)
+#                print(inp)
+#                print(answer_pos)
+#                x += 1
+#                break
+#        if x == 1:
+#            print(inp)
+#            print(answer_neg)
+
 date = datetime.today()
-items=["RAM","CPU","Motherboard","GPU"]
-prices=[1,4,5,15]
+items=["RAM","CPU","Motherboard","GPU","test","your mom"]
+prices=[1,4,5,15,60,5]
+inventory=[10,20,40,18,23,1]
+n_items=len(items)
+
 name = input("Hello, what is your name? ")
 new_topic()
+y=len(items)
 
 print("Welcome to Mr Sakamoto's store {}".format(name))
 #print("The time is: {}".format(date))
 
 print("Today's deals:")
-for i in range (4):
+for i in range (len(items)):
     n=str(i+1)
-    print(n+".",items[i],"{} Bitcoin".rjust(12).format(prices[i]))
+    print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),"({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
 new_topic()
+
+#check_input("select an option 1-{}: ".format(n_items),n_items,"You selected option {}: {}. This item costs {} Bitcoin".format(i + 1, items[i], prices[i]),"The item number {} does not exist".format(inp))
+
 
 x=1
 while x==1:
-    option=input("select an option 1-4: ")
-    for i in range (4):
+    option=input("select an option 1-{}: ".format(len(items)))
+    for i in range (len(items)):
         if option==str(i+1):
-            print("You selected option {}: {}. This ite, costs {} Bitcoin".format(i+1,items[i],prices[i]))
+            print("You selected option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
             x+=1
     if x==1:
         print("The item number {} does not exist".format(option))
 new_topic()
 
-amount = int(input("How many do you want? "))
+x=1
+while x==1:
+    amount=input("How many do you want (max is {})? ".format(inventory[int(option)-1]))
+    for i in range(inventory[int(option)-1]):
+        if amount==str(i+1):
+            x+=1
+    if x==1:
+        print("Invalid input. Enter a number within the given range.")
 new_topic()
 
-print("It will cost {} Bitcoin".format(prices[int(option)-1] * amount))
+print("It will cost {} Bitcoin".format(prices[int(option)-1] * int(amount)))
 
 while True:
     proceed = input("Would you like to proceed? Yes or No: ")
