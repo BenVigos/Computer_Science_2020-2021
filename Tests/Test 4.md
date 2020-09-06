@@ -10,9 +10,7 @@ def new_topic():
       ===================
       """)
 
-file=open("store data.txt","r")
-all_lines=file.readlines()
-file.close()
+all_lines=open("store data.txt","r").readlines()
 items=all_lines[0].strip().split(",")
 prices=all_lines[1].strip().split(",")
 inventory=(all_lines[2].strip().split(","))
