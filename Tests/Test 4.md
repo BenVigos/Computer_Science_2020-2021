@@ -1,9 +1,11 @@
 # Test four:
 ### What's new?
-* Program now works with text file!
-
+* Program now works with text file!!!
+* Made the code shorter by using PyInputPlus
 ```
 from datetime import datetime
+import pyinputplus as pyinp
+
 
 def new_topic():
     print("""
@@ -11,9 +13,9 @@ def new_topic():
       """)
 
 all_lines=open("store data.txt","r").readlines()
-items=all_lines[0].strip().split(",")
-prices=all_lines[1].strip().split(",")
-inventory=(all_lines[2].strip().split(","))
+items = all_lines[0].strip().split(",")
+prices = all_lines[1].strip().split(",")
+inventory = (all_lines[2].strip().split(","))
 
 if not len(items)==len(prices)==len(inventory):
     new_topic()
@@ -21,13 +23,13 @@ if not len(items)==len(prices)==len(inventory):
     exit()
 
 for i in range(len(prices)):
-    prices[i]=int(prices[i])
-    inventory[i]=int(inventory[i])
+    prices[i] = int(prices[i])
+    inventory[i] = int(inventory[i])
 
 
 #def check_input(question,num,answer_pos,answer_neg):
 #   x = 1
-#    while x == 1:
+#    while x==1:
 #        inp = input(question)
 #        print(inp)
 #        for i in range(num):
@@ -37,64 +39,49 @@ for i in range(len(prices)):
 #                print(answer_pos)
 #                x += 1
 #                break
-#        if x == 1:
+#        if x==1:
 #            print(inp)
 #            print(answer_neg)
 
 date = datetime.today()
-n_items=len(items)
+n_items = len(items)
 
 name = input("Hello, what is your name? ")
 new_topic()
-y=len(items)
+y = len(items)
 
 print("Welcome to Mr Sakamoto's store {}".format(name))
 #print("The time is: {}".format(date))
 
 print("Today's deals:")
 for i in range (len(items)):
-    n=str(i+1)
-    print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),"({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
+    n = str(i+1)
+    print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),
+          "({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
 new_topic()
 
 #check_input("select an option 1-{}: ".format(n_items),n_items,"You selected option {}: {}. This item costs {} Bitcoin".format(i + 1, items[i], prices[i]),"The item number {} does not exist".format(inp))
 
 
-x=1
-while x==1:
-    option=input("select an option 1-{}: ".format(len(items)))
-    for i in range (len(items)):
-        if option==str(i+1):
-            print("You selected option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
-            x+=1
-    if x==1:
-        print("The item number {} does not exist".format(option))
+option=pyinp.inputInt("select an option 1-{}: ".format(len(items)),min=1,max=len(items))
+for i in range (len(items)):
+    if option==str(i+1):
+        print("You selected option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
+
 new_topic()
 
-x=1
-while x==1:
-    amount=input("How many do you want (max is {})? ".format(inventory[int(option)-1]))
-    for i in range(inventory[int(option)-1]):
-        if amount==str(i+1):
-            x+=1
-    if x==1:
-        print("Invalid input. Enter a number within the given range.")
+
+amount = pyinp.inputInt("How many do you want (max is {})? ".format(inventory[int(option)-1]),
+                            max=inventory[int(option)-1])
 new_topic()
 
 print("It will cost {} Bitcoin".format(prices[int(option)-1] * int(amount)))
 
-while True:
-    proceed = input("Would you like to proceed? Yes or No: ")
-
-    if proceed == "Yes":
-        new_topic()
-        print("cool")
-        break
-    elif proceed == "No":
-        new_topic()
-        print("Aww :'(")
-        break
-    else:
-        new_topic()
-        print("Invalid input. Type 'Yes' or 'No'")
+proceed = pyinp.inputYesNo("Would you like to proceed?")
+if proceed=="yes":
+    new_topic()
+    print("cool")
+else:
+    new_topic()
+    print("Aww :'(")
 ```
