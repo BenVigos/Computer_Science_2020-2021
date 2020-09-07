@@ -26,25 +26,8 @@ for i in range(len(prices)):
     prices[i] = int(prices[i])
     inventory[i] = int(inventory[i])
 
-
-#def check_input(question,num,answer_pos,answer_neg):
-#   x = 1
-#    while x==1:
-#        inp = input(question)
-#        print(inp)
-#        for i in range(num):
-#            if inp==str(i):
-#                print(i)
-#                print(inp)
-#                print(answer_pos)
-#                x += 1
-#                break
-#        if x==1:
-#            print(inp)
-#            print(answer_neg)
-
 date = datetime.today()
-n_items = len(items)
+
 
 name = input("Hello, what is your name? ")
 new_topic()
@@ -60,9 +43,6 @@ for i in range (len(items)):
           "({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
 new_topic()
 
-#check_input("select an option 1-{}: ".format(n_items),n_items,"You selected option {}: {}. This item costs {} Bitcoin".format(i + 1, items[i], prices[i]),"The item number {} does not exist".format(inp))
-
-
 option=pyinp.inputInt("select an option 1-{}: ".format(len(items)),min=1,max=len(items))
 for i in range (len(items)):
     if option==str(i+1):
@@ -72,7 +52,7 @@ new_topic()
 
 
 amount = pyinp.inputInt("How many do you want (max is {})? ".format(inventory[int(option)-1]),
-                            max=inventory[int(option)-1])
+                        max=inventory[int(option)-1])
 new_topic()
 
 print("It will cost {} Bitcoin".format(prices[int(option)-1] * int(amount)))
