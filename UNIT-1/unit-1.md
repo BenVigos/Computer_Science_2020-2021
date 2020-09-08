@@ -72,43 +72,35 @@ def new_topic():
       ===================
       """)
 
-#def check_input(question,num,answer_pos,answer_neg):
-#   x = 1
-#    while x == 1:
-#        inp = input(question)
-#        print(inp)
-#        for i in range(num):
-#            if inp==str(i):
-#                print(i)
-#                print(inp)
-#                print(answer_pos)
-#                x += 1
-#                break
-#        if x == 1:
-#            print(inp)
-#            print(answer_neg)
+all_lines=open("store data.txt","r").readlines()
+items = all_lines[0].strip().split(",")
+prices = all_lines[1].strip().split(",")
+inventory = (all_lines[2].strip().split(","))
+
+if not len(items)==len(prices)==len(inventory):
+    new_topic()
+    print("Something in the store data is wrong. Fix it and try again.")
+    exit()
+
+for i in range(len(prices)):
+    prices[i] = int(prices[i])
+    inventory[i] = int(inventory[i])
 
 date = datetime.today()
-items=["RAM","CPU","Motherboard","GPU","test","your mom"]
-prices=[1,4,5,15,60,5]
-inventory=[10,20,40,18,23,1]
-n_items=len(items)
 
 name = input("Hello, what is your name? ")
 new_topic()
-y=len(items)
+y = len(items)
 
 print("Welcome to Mr Sakamoto's store {}".format(name))
 #print("The time is: {}".format(date))
 
 print("Today's deals:")
 for i in range (len(items)):
-    n=str(i+1)
-    print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),"({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
+    n = str(i+1)
+    print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),
+          "({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
 new_topic()
-
-#check_input("select an option 1-{}: ".format(n_items),n_items,"You selected option {}: {}. This item costs {} Bitcoin".format(i + 1, items[i], prices[i]),"The item number {} does not exist".format(inp))
-
 
 x=1
 while x==1:
@@ -119,7 +111,10 @@ while x==1:
             x+=1
     if x==1:
         print("The item number {} does not exist".format(option))
+
 new_topic()
+
+
 
 x=1
 while x==1:
