@@ -60,7 +60,7 @@ while True:
 * Automated some of the processes.
 * Tried to make it fool proof. No input can break it.
 * Reduced the length of the code by getting rid of repetitions.
-* Tried to make a check_input function. Failed.
+* Can read text file!
 
 
 
