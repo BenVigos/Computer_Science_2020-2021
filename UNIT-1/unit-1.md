@@ -144,31 +144,52 @@ while True:
         print("Invalid input. Type 'Yes' or 'No'")
 ```
 
-### Simulation of a dice we did during class:
+### Simulation of a dice:
 
 ```.py
+import random, math, matplotlib.pyplot as plt
+
 #simulation of a fare dice
-import random, math
+#You can play arround with these values.
 
-n = 0
-nums=[0,0,0,0,0,0]
-iter=1000
-error=[0,0,0,0,0,0]
-abs_err=[0,0,0,0,0,0]
 
-for i in range(iter):
-    n = random.randint(0, 59) / 10
-    nums[math.ceil(n)-1] += 1
+min=100
+max=10000
+steps=1000
 
-for z in range(6):
-    error[z]= round(nums[z]-iter/6)
-    abs_err[z]= abs(round(nums[z]-iter/6))
-    print(
-            """Number of {}s rolled: {} out of expected {}
-                The error is: {}
-                %error is:{}
-            """.format(z+1, nums[z], round(iter/6), error[z], abs(error[z]/nums[z])))
 
-average=sum(abs_err)/2
-print(average)
+#DON'T TOUCH ANYTHING BELOW THIS IF YOU'RE NOT ME
+reps = []
+av_err = []
+ps=0
+
+for it in range(min, max+1, round(10001/steps)):
+
+    n = 0
+    nums=[0,0,0,0,0,0]
+    error=[0,0,0,0,0,0]
+    reps.append(it)
+
+    for i in range(it):
+        n = random.randint(0, 59) / 10
+        nums[math.ceil(n)-1] += 1
+
+    for z in range(6):
+        error[z]= round(nums[z]-it/6)
+        #print("""Number of {}s rolled: {} out of expected {}
+        #            The error is: {}
+        #            %error is:{}
+        #        """.format(z+1, nums[z], round(it/6), error[z], abs(error[z]/nums[z])))
+
+    av_err.append(math.sqrt(sum([ x**2 for x in error])/6))
+    ps+=1
+
+print("The simulation is done. Look right for results")
+
+plt.plot(reps, av_err, "ro")
+plt.plot(reps, av_err)
+plt.ylabel("average error")
+plt.xlabel("number of dice thrown")
+plt.show()
+
 ```
