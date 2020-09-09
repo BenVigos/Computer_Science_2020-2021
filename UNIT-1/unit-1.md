@@ -12,7 +12,7 @@ There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner
 (only major updates are recorded here, to find more tests go to the folder called "tests")
 
 ### First test for a text based store:
-```
+```.py
 from datetime import datetime
 date=datetime.today()
 name=input("Hello, what is your name? ")
@@ -64,7 +64,7 @@ while True:
 
 
 
-```
+```.py
 from datetime import datetime
 
 def new_topic():
