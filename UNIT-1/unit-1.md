@@ -191,5 +191,4 @@ plt.plot(reps, av_err)
 plt.ylabel("average error")
 plt.xlabel("number of dice thrown")
 plt.show()
-
 ```
