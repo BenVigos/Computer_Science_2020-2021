@@ -2,7 +2,8 @@
 ### What's new?
 * Program now works with text file!!!
 * Made the code shorter by using PyInputPlus
-```
+
+```.py
 from datetime import datetime
 import pyinputplus as pyinp
 
