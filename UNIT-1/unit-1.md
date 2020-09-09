@@ -8,7 +8,7 @@ There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner
 ### Justification of the solution:
 **Here we will write the design statement: How, where, why**
 
-## Development:
+## Criteria C: Development
 (only major updates are recorded here, to find more tests go to the folder called "tests")
 
 ### First test for a text based store:
@@ -142,4 +142,33 @@ while True:
     else:
         new_topic()
         print("Invalid input. Type 'Yes' or 'No'")
+```
+
+### Simulation of a dice we did during class:
+
+```.py
+#simulation of a fare dice
+import random, math
+
+n = 0
+nums=[0,0,0,0,0,0]
+iter=1000
+error=[0,0,0,0,0,0]
+abs_err=[0,0,0,0,0,0]
+
+for i in range(iter):
+    n = random.randint(0, 59) / 10
+    nums[math.ceil(n)-1] += 1
+
+for z in range(6):
+    error[z]= round(nums[z]-iter/6)
+    abs_err[z]= abs(round(nums[z]-iter/6))
+    print(
+            """Number of {}s rolled: {} out of expected {}
+                The error is: {}
+                %error is:{}
+            """.format(z+1, nums[z], round(iter/6), error[z], abs(error[z]/nums[z])))
+
+average=sum(abs_err)/2
+print(average)
 ```
