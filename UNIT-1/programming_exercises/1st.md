@@ -2,7 +2,7 @@
 
 ### Create a program that asks the user for 10 numbers and then shows those values ordered from smallest to largest.
 
-```
+```.py
 n=[]
 pos=[0,0,0,0,0,0,0,0,0,0]
 
