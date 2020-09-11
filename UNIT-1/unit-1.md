@@ -9,7 +9,7 @@ There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner
 **Here we will write the design statement: How, where, why**
 
 ## Criteria B: Planning
-![]
+![flow chart]()
 
 ## Criteria C: Development
 (only major updates are recorded here, to find more tests go to the folder called "tests")
