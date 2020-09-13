@@ -6,7 +6,16 @@
 There is a 1,000 y.o. hardware store in Karuizawa, run by Mr Sakamoto. The owner wants to update his accounting software. At the moment everything is kept on paper. He would like to have a software application to replace his accounting book. Mr Sakamoto just got a new macbook.
 
 ### Justification of the solution:
-**Here we will write the design statement: How, where, why**
+We want to create a text based application for a computer, which provides the functionality for the hardware store. It will have an inventory of the items and their stock, which can be edited, a record of all the purchases, it will be able to categorize the items and calculate their price. We will develop this application in python because it's the language we're learning right now, 
+in class right now. In comparison to a lot of other programming languages (C+, etc), python has very simple syntax. It also has a large library of standards and toolkits that we can use to our advantage In addition, python is the most popular programming language, with programmers who write in python having the heighest anual salary out of all programmers[1].
+
+### T.E.L.O.S. (Technical, Economic, Legal, Operational, Scheduling) Study:
+[1] Eastwood, Brian. “The 10 Most Popular Programming Languages to Learn in 2020.” Northeastern University Graduate Programs, 27 Aug. 2020, www.northeastern.edu/graduate/blog/most-popular-programming-languages/. 
+
+### Criteria for Success:
+* Provides clear feedback to the user
+* (There are no bugs)
+* The program is secure, needs username and password to login 
 
 ## Criteria B: Planning
 ### Diagram
