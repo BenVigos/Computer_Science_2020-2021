@@ -77,7 +77,7 @@ while True:
 * Tried to make it fool proof. No input can break it.
 * Reduced the length of the code by getting rid of repetitions.
 * Can read text file!
-
+* Implemented taxes
 
 
 ```.py
@@ -118,31 +118,43 @@ for i in range (len(items)):
           "({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
 new_topic()
 
-x=1
-while x==1:
+x=0
+while x==0:
     option=input("select an option 1-{}: ".format(len(items)))
     for i in range (len(items)):
         if option==str(i+1):
             print("You selected option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
             x+=1
-    if x==1:
-        print("The item number {} does not exist".format(option))
+    if x==0:
+        print("Invalid input. Enter a number within the given range.")
+        new_topic()
 
 new_topic()
 
 
 
-x=1
-while x==1:
+x=0
+while x==0:
     amount=input("How many do you want (max is {})? ".format(inventory[int(option)-1]))
     for i in range(inventory[int(option)-1]):
         if amount==str(i+1):
+            cost = prices[int(option)-1] * int(amount)
             x+=1
-    if x==1:
+    if x==0:
         print("Invalid input. Enter a number within the given range.")
 new_topic()
 
-print("It will cost {} Bitcoin".format(prices[int(option)-1] * int(amount)))
+for i in range(5):
+    if cost/(i+1)<=250*(i+1):
+        tax=0.25-(0.05*i)
+        total_cost = cost+cost*tax
+        tax_cost = round(float(total_cost-cost),1)
+
+print("x"*(38+len(str(total_cost)+str(tax_cost))))
+print("x It will cost {} Bitcoin. The tax is {} x".format(total_cost,tax_cost))
+print("x"*(38+len(str(total_cost)+str(tax_cost))))
+new_topic()
+
 
 while True:
     proceed = input("Would you like to proceed? Yes or No: ")
@@ -159,6 +171,7 @@ while True:
         new_topic()
         print("Invalid input. Type 'Yes' or 'No'")
 ```
+
 
 ### Simulation of a dice:
 
