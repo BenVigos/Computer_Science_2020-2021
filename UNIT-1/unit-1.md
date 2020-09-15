@@ -185,18 +185,21 @@ import random, math, matplotlib.pyplot as plt
 min=100
 max=10000
 steps=1000
-
+plot="err" # "per" or "err"
 
 #DON'T TOUCH ANYTHING BELOW THIS IF YOU'RE NOT ME
 reps = []
 av_err = []
+av_per_err = []
 ps=0
 
-for it in range(min, max+1, round(10001/steps)):
-
+for it in range(min, max+10, round((max+10)/steps)):
+    print(ps)
     n = 0
     nums=[0,0,0,0,0,0]
     error=[0,0,0,0,0,0]
+    per_error=[0,0,0,0,0,0]
+
     reps.append(it)
 
     for i in range(it):
@@ -204,20 +207,35 @@ for it in range(min, max+1, round(10001/steps)):
         nums[math.ceil(n)-1] += 1
 
     for z in range(6):
-        error[z]= round(nums[z]-it/6)
+        error[z] = round(nums[z]-it/6)
+        per_error[z] = abs((error[z]/nums[z]))
         #print("""Number of {}s rolled: {} out of expected {}
         #            The error is: {}
         #            %error is:{}
         #        """.format(z+1, nums[z], round(it/6), error[z], abs(error[z]/nums[z])))
 
-    av_err.append(math.sqrt(sum([ x**2 for x in error])/6))
+    #var 1?
+    av_err.append(sum([ abs(x) for x in error])/(6*it))
+
+    #var 2?
+    #av_err.append(math.sqrt(2 ** sum([x for x in error])) / (6 * it))
+
+    av_per_err.append(sum([ x for x in per_error])/(6*it))
+
     ps+=1
 
 print("The simulation is done. Look right for results")
 
-plt.plot(reps, av_err, "ro")
-plt.plot(reps, av_err)
-plt.ylabel("average error")
 plt.xlabel("number of dice thrown")
+if plot=="err":
+    plt.plot(reps, av_err, "ro")
+    plt.plot(reps, av_err)
+    plt.ylabel("absolute value of average error")
+
+else:
+    plt.plot(reps, av_per_err, "ro")
+    plt.plot(reps, av_per_err)
+    plt.ylabel("absolute value of average percentage error")
+
 plt.show()
 ```
