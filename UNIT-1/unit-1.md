@@ -17,12 +17,19 @@ in class right now. In comparison to a lot of other programming languages (C+, e
 * (There are no bugs)
 * The program is secure, needs username and password to login 
 
-## Criteria B: Planning
+## Criteria B: Design
 ### Diagram
 ![Diagram](photos%20and%20stuff/20200912_190122.jpg)
 
 ### Flow chart
 ![flow chart](photos%20and%20stuff/Screenshot%202020-09-11%20at%206.52.05%20PM.png)
+
+### Actions chart
+| Task No. |                                Planned action                                |           Planned Outcome          | Time Estimated | Target completion date | Criteria |
+|:--------:|:----------------------------------------------------------------------------:|:----------------------------------:|:--------------:|:----------------------:|:--------:|
+|     1    | Planning: Discussed the context of the situation (1st interview with client) | Write the contexts of the problem. |     15 min     |        3/9/2020        |     A    |
+|     2    |         Development: Coded a first prototype of our text-based store         |          A working program         |     180 min    |        10/9/2020       |     C    |
+|     3    |    Design: Create a flow diagram of one of the algorithms used in our code   |  Flow diagram explaining algorithm |     30 min     |        11/9/2020       |     B    |
 
 ## Criteria C: Development
 (only major updates are recorded here, to find more tests go to the folder called "tests")
