@@ -18,13 +18,14 @@ in class right now. In comparison to a lot of other programming languages (C+, e
 * The program is secure, needs username and password to login 
 
 ## Criteria B: Design
-### Diagram
+
+### System Diagram
 ![Diagram](photos%20and%20stuff/20200912_190122.jpg)
 
 ### Flow chart
 ![flow chart](photos%20and%20stuff/Screenshot%202020-09-11%20at%206.52.05%20PM.png)
 
-### Actions chart
+### Record of tasks
 | Task No. |                                Planned action                                |           Planned Outcome          | Time Estimated | Target completion date | Criteria |
 |:--------:|:----------------------------------------------------------------------------:|:----------------------------------:|:--------------:|:----------------------:|:--------:|
 |     1    | Planning: Discussed the context of the situation (1st interview with client) | Write the contexts of the problem. |     15 min     |        3/9/2020        |     A    |
@@ -253,3 +254,7 @@ plt.show()
 
 We tried to draw the architecture of a computer and this is an explenation of the incredible abstract art featured above. On the top left of the box we have our DDR4 compatible motherboard, featuring 32GM of DDR4 RAM, a core i9 latest-gen cpu and a GTX1080 GPU. We can see that our motherboard has a PCH, a ROM/CMOS chip, a BUS slots and PCI express slots (Where the GPU is connected). It also has all the required ports (USB, HDMI, DP, Ethernet, etc) to connect all our inputs seen on the left of the diagram. On the bottom left of the box we have our 600W 80+ bronze power supply ("80+ bronze" reffers to its efficiency), which can output +- 12, 5 or 3.3 Volts and is connected to the motherboard with PSU cables. On the left of the motherboard we have a 256GB SSD and a 2TB HDD which are connected to the motherboard through SATA cables. Below the SSD we can see that the maker of this computer did a poor job at cable managemnet. Finally, on the right side of the box we have our various output devices, most notably our display which is connected to the computer through the display port (DP). All around the we can see some drawings and depictions of various components and devices.
   
+## Criteria D: Functionality
+-This is a video-
+
+## Criteria E: Evaluation
