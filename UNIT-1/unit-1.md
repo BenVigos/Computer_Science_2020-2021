@@ -253,6 +253,34 @@ plt.show()
 ![Computer architecture](photos%20and%20stuff/Computer%20architecture.jpg)
 
 We tried to draw the architecture of a computer and this is an explenation of the incredible abstract art featured above. On the top left of the box we have our DDR4 compatible motherboard, featuring 32GM of DDR4 RAM, a core i9 latest-gen cpu and a GTX1080 GPU. We can see that our motherboard has a PCH, a ROM/CMOS chip, a BUS slots and PCI express slots (Where the GPU is connected). It also has all the required ports (USB, HDMI, DP, Ethernet, etc) to connect all our inputs seen on the left of the diagram. On the bottom left of the box we have our 600W 80+ bronze power supply ("80+ bronze" reffers to its efficiency), which can output +- 12, 5 or 3.3 Volts and is connected to the motherboard with PSU cables. On the left of the motherboard we have a 256GB SSD and a 2TB HDD which are connected to the motherboard through SATA cables. Below the SSD we can see that the maker of this computer did a poor job at cable managemnet. Finally, on the right side of the box we have our various output devices, most notably our display which is connected to the computer through the display port (DP). All around the we can see some drawings and depictions of various components and devices.
+
+### Securing the database:
+I made a basic encryptor for my store's database
+
+```.py
+#This program encrypts the store data
+shift=2
+new_elem=["","",""]
+n=0
+all_lines=open("store data.txt","r").readlines()
+encr_lines=open("encrypted store data.txt","w")
+
+#Strips the lines from \n
+for i in range(3):
+    all_lines[i]=all_lines[i].strip()
+
+#Encrypts the elements
+for line in all_lines:
+    for elem in line:
+        new_elem[n]+=chr(ord(elem)+shift)
+    n+=1
+
+#Puts the encrypted elements in the file
+for elem in new_elem:
+    encr_lines.write(elem+"\n")
+encr_lines.close()
+```
+
   
 ## Criteria D: Functionality
 -This is a video-
