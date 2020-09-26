@@ -257,6 +257,8 @@ We tried to draw the architecture of a computer and this is an explenation of th
 ### Securing the database:
 I made a basic encryptor for my store's database
 
+![Encryptor Flow-Chart](photos%20and%20stuff/Encryptor_flow-chart.png)
+
 ```.py
 #This program encrypts the store data
 shift=2
