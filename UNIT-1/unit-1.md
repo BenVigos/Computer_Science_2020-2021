@@ -261,28 +261,79 @@ I made a basic encryptor for my store's database
 
 ```.py
 #This program encrypts the store data
-shift=2
-new_elem=["","",""]
-n=0
-all_lines=open("store data.txt","r").readlines()
-encr_lines=open("encrypted store data.txt","w")
 
-#Strips the lines from \n
-for i in range(3):
-    all_lines[i]=all_lines[i].strip()
+def encryptor(items, prices, inventory):
+    encr_msg = ["", "", ""]
+    key = [int(ord(char)/10) for char in "p4ssw0rd"]
+    encr_lines = open("encrypted store data.txt", "w")
 
-#Encrypts the elements
-for line in all_lines:
-    for elem in line:
-        new_elem[n]+=chr(ord(elem)+shift)
-    n+=1
+    prices = [str(ch) for ch in prices]
+    inventory = [str(ch) for ch in inventory]
+    items = ",".join(items)
+    prices = ",".join(prices)
+    inventory = ",".join(inventory)
 
-#Puts the encrypted elements in the file
-for elem in new_elem:
-    encr_lines.write(elem+"\n")
-encr_lines.close()
+    all_lines = [items, prices, inventory]
+
+    print(all_lines)
+    # Strips the lines from \n
+    #for i in range(3):
+    #   all_lines[i]=all_lines[i].strip()
+
+    #Encrypts the elements
+    for n,line in enumerate(all_lines):
+        for x, elem in enumerate(line):
+            encr_msg[n]+=chr(ord(elem)+key[x%8])
+
+    #Puts the encrypted elements in the file
+    for elem in encr_msg:
+        encr_lines.write(elem+"\n")
+
+    encr_lines.close()
+
+
+def decryptor(key):
+    decrypted_list=["","",""]
+    shift=[int(ord(char)/10) for char in key]
+
+    all_lines = open("store data.txt", "r").readlines()
+    encr_lines = open("encrypted store data.txt", "r").readlines()
+
+    # Strips the lines from \n
+    for i in range(3):
+        encr_lines[i] = encr_lines[i].strip()
+
+    #
+    for n,line in enumerate(encr_lines):
+        for x, elem in enumerate(line):
+            decrypted_list[n] += chr(ord(elem) - shift[x%8])
+
+
+    for i in range(3):
+        decrypted_list[i] = decrypted_list[i].strip("\x08")
+
+    return decrypted_list
 ```
 
+#### Testing the security:
+```.py
+#This program tests the encryption and decryption functions
+import library as lib
+
+all_lines = lib.decryptor("p4ssw0rd")
+items = all_lines[0].split(",")
+prices = [int(ch) for ch in all_lines[1].split(",")]
+inventory = [int(ch) for ch in all_lines[2].split(",")]
+
+
+for n in range(len(inventory)):
+    inventory[n]=inventory[n]*2
+
+
+print(all_lines)
+
+lib.encryptor(items, prices, inventory)
+```
   
 ## Criteria D: Functionality
 -This is a video-
