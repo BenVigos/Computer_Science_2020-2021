@@ -86,61 +86,58 @@ while True:
 * Reduced the length of the code by getting rid of repetitions.
 * Can read text file!
 * Implemented taxes
+* More!
 
 
 ```.py
-from datetime import datetime
+#This is my electronics hardware store! (use username:ben and password:p4ssw0rd)
+import library as lib
 
-def new_topic():
-    print("""
-      ===================
-      """)
+#Login check
+x=0
+while x==0:
+    usrname = input("Hello, what is your username? ")
+    pswd = input("What is your password? ")
+    if usrname=="ben" and pswd=="p4ssw0rd":
+        x+=1
+    else:
+        print("Invalid information, please try again.")
+        lib.new_topic()
 
-all_lines=open("store data.txt","r").readlines()
-items = all_lines[0].strip().split(",")
-prices = all_lines[1].strip().split(",")
-inventory = (all_lines[2].strip().split(","))
+decrypted_list, items, prices, inventory = lib.decryptor(pswd)
 
+lib.new_topic()
+
+#Checks if the number of items matches up with the number of prices and inventory
 if not len(items)==len(prices)==len(inventory):
-    new_topic()
+    lib.new_topic()
     print("Something in the store data is wrong. Fix it and try again.")
     exit()
 
-for i in range(len(prices)):
-    prices[i] = int(prices[i])
-    inventory[i] = int(inventory[i])
-
-date = datetime.today()
-
-name = input("Hello, what is your name? ")
-new_topic()
-y = len(items)
-
-print("Welcome to Mr Sakamoto's store {}".format(name))
-#print("The time is: {}".format(date))
-
+#Prints the menu.
+print("Welcome to Mr Sakamoto's store {}".format(usrname))
 print("Today's deals:")
 for i in range (len(items)):
     n = str(i+1)
     print(n+".",items[i],"{} Bitcoin".rjust(25-len(items[i])).format(prices[i]),
           "({} available)".format(inventory[i]).rjust(26-(len(str(prices[i]))+len("  Bitcoin"))))
-new_topic()
+lib.new_topic()
 
+#Checks if the input is valid
 x=0
 while x==0:
     option=input("select an option 1-{}: ".format(len(items)))
     for i in range (len(items)):
         if option==str(i+1):
-            print("You selected option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
+            print("You selectlib option {}: {}. This item costs {} Bitcoin".format(i+1,items[i],prices[i]))
             x+=1
     if x==0:
         print("Invalid input. Enter a number within the given range.")
-        new_topic()
+        lib.new_topic()
 
-new_topic()
+lib.new_topic()
 
-
-
+#Checks if the input is valid
 x=0
 while x==0:
     amount=input("How many do you want (max is {})? ".format(inventory[int(option)-1]))
@@ -150,34 +147,39 @@ while x==0:
             x+=1
     if x==0:
         print("Invalid input. Enter a number within the given range.")
-new_topic()
+lib.new_topic()
 
+#Calculates the tax
 for i in range(5):
     if cost/(i+1)<=250*(i+1):
         tax=0.25-(0.05*i)
         total_cost = cost+cost*tax
         tax_cost = round(float(total_cost-cost),1)
 
+#Prints price box
 print("x"*(38+len(str(total_cost)+str(tax_cost))))
 print("x It will cost {} Bitcoin. The tax is {} x".format(total_cost,tax_cost))
 print("x"*(38+len(str(total_cost)+str(tax_cost))))
-new_topic()
+lib.new_topic()
 
-
+#Purchase confirmation and validation check
 while True:
     proceed = input("Would you like to proceed? Yes or No: ")
 
-    if proceed == "Yes":
-        new_topic()
+    if proceed == "Yes" or "yes" or "Y" or"y":
+        lib.new_topic()
         print("cool")
+        #inventory[int(option)-1]=inventory[int(option)-1]-int(amount)
         break
-    elif proceed == "No":
-        new_topic()
+    elif proceed == "No" or "no" or "N" or "n":
+        lib.new_topic()
         print("Aww :'(")
         break
     else:
-        new_topic()
-        print("Invalid input. Type 'Yes' or 'No'")
+        lib.new_topic()
+        print("Invalid input. Type 'Yes','yes','Y','y' or 'No','no','N','n'")
+
+#lib.encryptor(items, prices, inventory)
 ```
 
 
@@ -260,79 +262,74 @@ I made a basic encryptor for my store's database
 ![Encryptor Flow-Chart](photos%20and%20stuff/Encryptor_flow-chart.png)
 
 ```.py
-#This program encrypts the store data
+#This program encrypts and decrypts the store data
 
 def encryptor(items, prices, inventory):
-    encr_msg = ["", "", ""]
+    msg = ["","","","","","",""]
+    encr_msg = ["","","","","","",""]
     key = [int(ord(char)/10) for char in "p4ssw0rd"]
-    encr_lines = open("encrypted store data.txt", "w")
+    encr_lines= open("encrypted store data.txt", "w")
 
-    prices = [str(ch) for ch in prices]
-    inventory = [str(ch) for ch in inventory]
-    items = ",".join(items)
-    prices = ",".join(prices)
-    inventory = ",".join(inventory)
-
-    all_lines = [items, prices, inventory]
-
-    print(all_lines)
-    # Strips the lines from \n
-    #for i in range(3):
-    #   all_lines[i]=all_lines[i].strip()
+    #Puts the elements in the format "item,price,inventory"
+    for i in range(len(items)):
+        msg[i] = items[i]+","+str(prices[i])+","+str(inventory[i])
 
     #Encrypts the elements
-    for n,line in enumerate(all_lines):
+    for n,line in enumerate(msg):
         for x, elem in enumerate(line):
-            encr_msg[n]+=chr(ord(elem)+key[x%8])
+            encr_msg[n] += chr(ord(elem)+key[x%8])
 
     #Puts the encrypted elements in the file
     for elem in encr_msg:
         encr_lines.write(elem+"\n")
 
-    encr_lines.close()
+
+
+
 
 
 def decryptor(key):
-    decrypted_list=["","",""]
-    shift=[int(ord(char)/10) for char in key]
+    decrypted_list = ["","","","","","",""]
+    final_dec_list = []
+    shift = [int(ord(char)/10) for char in key]
 
-    all_lines = open("store data.txt", "r").readlines()
+    #all_lines = open("store data.txt", "r").readlines()
     encr_lines = open("encrypted store data.txt", "r").readlines()
 
     # Strips the lines from \n
-    for i in range(3):
+    for i in range(len(decrypted_list)):
         encr_lines[i] = encr_lines[i].strip()
 
-    #
     for n,line in enumerate(encr_lines):
         for x, elem in enumerate(line):
             decrypted_list[n] += chr(ord(elem) - shift[x%8])
 
+    decrypted_list = [decrypted_list[n] + "," for n in range(len(decrypted_list)) ]
+    decrypted_list[len(decrypted_list)-1] = decrypted_list[len(decrypted_list)-1].rstrip(",")
+    decrypted_list = "".join(decrypted_list)
+    decrypted_list = decrypted_list.split(",")
 
-    for i in range(3):
-        decrypted_list[i] = decrypted_list[i].strip("\x08")
+    items = [decrypted_list[n] for n in range(len(decrypted_list)) if n%3==0]
+    prices = [int(decrypted_list[n]) for n in range(len(decrypted_list)) if n%3==1]
+    inventory = [int(decrypted_list[n]) for n in range(len(decrypted_list)) if n%3==2]
+    decrypted_list = items+prices+inventory
 
-    return decrypted_list
+    return decrypted_list, items, prices, inventory
 ```
 
 #### Testing the security:
 ```.py
-#This program tests the encryption and decryption functions
+#This program tests the decryption and encryption functions by multiplying the
 import library as lib
 
-all_lines = lib.decryptor("p4ssw0rd")
-items = all_lines[0].split(",")
-prices = [int(ch) for ch in all_lines[1].split(",")]
-inventory = [int(ch) for ch in all_lines[2].split(",")]
+decrypted_list, items, prices, inventory = lib.decryptor("p4ssw0rd")
+print(inventory)
 
-
-for n in range(len(inventory)):
-    inventory[n]=inventory[n]*2
-
-
-print(all_lines)
-
+inventory = [inventory[n]*2 for n in range(len(items))]
 lib.encryptor(items, prices, inventory)
+
+decr = lib.decryptor("p4ssw0rd")
+print(decr[3])
 ```
   
 ## Criteria D: Functionality
