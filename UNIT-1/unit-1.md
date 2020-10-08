@@ -287,7 +287,6 @@ def encryptor(items, prices, inventory):
 
 
 
-
 def decryptor(key):
     decrypted_list = ["","","","","","",""]
     final_dec_list = []
