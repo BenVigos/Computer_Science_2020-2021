@@ -335,3 +335,16 @@ print(decr[3])
 -This is a video-
 
 ## Criteria E: Evaluation
+
+### Test plan:
+| Step No. |                                               Planned action                                               |                        Planned Outcome                       |
+|:--------:|:----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------:|
+|     1    | Go to github repository and follow the readme.md instructions  in the "Electronics hardware store" section |               Nothing. Now you're ready to go!               |
+|     2    |                                           Press the start button                                           | The program starts running.  "Hello, What is your username?" |
+|     3    |                   Enter any word for username press enter and write any word for password                  |           "Invalid information, please try again."           |
+|     4    |                            Enter "ben" as username and "p4ssw0rd" as a password                            |                    Item catalogue shows up                   |
+|     5    |                               Enter a number bigger than 7 or smaller than 1                               |                         Invalid Input                        |
+|     6    |                                       Enter a number between 1 and 7                                       |             You selected... How many do you want?            |
+|     7    |                            Enter a number bigger than the max or smaller than 0                            |                         Invalid Input                        |
+|     8    |                                    Enter a number between 1 and the max                                    |           Price and tax... Do you want to proceed?           |
+|     9    |                                              Insert yes or no                                              |                  "cool" or "awww :(" show up                 |
