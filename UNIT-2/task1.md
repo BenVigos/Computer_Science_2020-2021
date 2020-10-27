@@ -1,3 +1,4 @@
+```
 #This program helps person B find person A's number
 #It then plays the game 10000 times and finds the average number of itterations it took to find person A's number
 
@@ -46,3 +47,4 @@ for i in range(10000):
     print("")
 
 print("It took {} itterations on average".format(tot_it/10000))
+```
