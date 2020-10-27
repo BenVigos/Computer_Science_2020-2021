@@ -1,4 +1,4 @@
-```
+```.py
 #This program helps person B find person A's number
 #It then plays the game 10000 times and finds the average number of itterations it took to find person A's number
 
