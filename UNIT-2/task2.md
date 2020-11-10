@@ -13,6 +13,8 @@
 | 0 | 1 | 1 |    0     |      0     |
 | 1 | 1 | 1 |    0     |      1     |
 
+![Logic circuit](/UNIT-2/photos%20and%20stuff/unit_2-task_2-Q1.jpg)
+
 
 ### Q2
 
