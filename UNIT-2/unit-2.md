@@ -37,3 +37,15 @@ I wanted to create something interesting and intuitive, something that can be me
 
 ### Guide sheet
 https://docs.google.com/spreadsheets/d/15U8GftIOJLYDT_HLyW-AoH88V_5KD4rZaiWvgq5cP2Y/edit?usp=sharing 
+
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
+|                                 Planned action                                |                   Expected Outcome                  | Met? |
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
+| Table with numbers, LED's and buttons is provided? Check Criteria E of Unit 2 |                         Yes                         |      |
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
+|         Follow the table mentioned above to check the numbers from 0-9        | If table was followed, the numbers should light up. |      |
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
+|           Play the automatic sequence of numbers and see if it works          |               Automatic sequence plays              |      |
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
+|                       Count number of LED's and buttons                       |            5 LED's < 7 and 4 button <= 4            |      |
++-------------------------------------------------------------------------------+-----------------------------------------------------+------+
