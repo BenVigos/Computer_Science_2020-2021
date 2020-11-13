@@ -34,3 +34,6 @@ I wanted to create something interesting and intuitive, something that can be me
 ## Criteria D: Functionality
 
 ## Criteria E: Evaluation
+
+### Guide sheet
+https://docs.google.com/spreadsheets/d/15U8GftIOJLYDT_HLyW-AoH88V_5KD4rZaiWvgq5cP2Y/edit?usp=sharing 
