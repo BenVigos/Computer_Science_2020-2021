@@ -31,6 +31,72 @@ I wanted to create something interesting and intuitive, something that can be me
 ### Final product
 ![Final product](/UNIT-2/photos%20and%20stuff/unit_2-arduino.jpg)
 
+### Code
+```
+int A = 0;
+int B = 0;
+int C = 0;
+int D = 0;
+
+void setup()
+{
+  //Button A
+  pinMode(13, OUTPUT);
+  pinMode(7, INPUT);
+  
+  //Button B
+  pinMode(12, OUTPUT);
+  pinMode(6, INPUT);
+  
+  //Button C
+  pinMode(11, OUTPUT);
+  pinMode(5, INPUT);
+  
+  //Button D
+  pinMode(10, OUTPUT);
+  pinMode(4, INPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  
+  
+  if(digitalRead(7) == HIGH)
+  {
+    A = (A-1)*(A-1);
+    Serial.println("button A is pressed");
+    digitalWrite(13, A);
+    delay(300);
+  }
+  
+    if(digitalRead(6) == HIGH)
+  {
+    B = (B-1)*(B-1);
+    Serial.println("button B is pressed");
+    digitalWrite(12, B);
+    delay(300);
+  }
+  
+    if(digitalRead(5) == HIGH)
+  {
+    C = (C-1)*(C-1);
+    Serial.println("button C is pressed");
+    digitalWrite(11, C);
+    delay(300);
+  }
+  
+    if(digitalRead(4) == HIGH)
+  {
+    D = (D-1)*(D-1);
+    Serial.println("button D is pressed");
+    digitalWrite(10, D);
+    delay(300);
+  }
+}
+```
 ## Criteria D: Functionality
 
 ## Criteria E: Evaluation
