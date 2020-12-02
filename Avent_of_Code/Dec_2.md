@@ -21,7 +21,6 @@ for x, line in enumerate(inp):
     if str.count(c)-1>=m and str.count(c)-1<=int(M):
         tot+=1
 
-
 print(tot)
 ```
 
@@ -69,5 +68,6 @@ for x, line in enumerate(inp):
     print(it)
     print(" ")
     it += 1
+    
 print(tot)
 ```
