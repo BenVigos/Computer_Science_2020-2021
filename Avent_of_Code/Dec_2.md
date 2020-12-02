@@ -21,7 +21,7 @@ for x, line in enumerate(inp):
     if str.count(c)-1>=m and str.count(c)-1<=int(M):
         tot+=1
 
-print(tot)
+print("total: ", tot)
 ```
 
 
@@ -41,7 +41,7 @@ for x, line in enumerate(inp):
     p2= int(str[2]+str[3] if p1-10<0 else str[3]+str[4])
     c= ( str[4] if p1-10<0 and p2-10<0 else str[6] if p1-10>=0 and p2-10>=0 else str[5])
     d = 4
-    
+
     if p1 - 10 < 0:
         d += 1
 
@@ -65,9 +65,9 @@ for x, line in enumerate(inp):
     if str[p1+d]==c and str[p2+d]!=c or str[p1+d]!=c and str[p2+d]==c:
         tot+=1
 
-    print(it)
+    print("it: ", it)
     print(" ")
     it += 1
-    
-print(tot)
+
+print("total: ", tot)
 ```
