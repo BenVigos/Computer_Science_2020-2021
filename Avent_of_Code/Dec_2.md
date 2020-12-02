@@ -54,8 +54,8 @@ for x, line in enumerate(inp):
     else:
         d += 2
 
-    print("min: ", p1)
-    print("max: ", p2)
+    print("pos1: ", p1)
+    print("pos2: ", p2)
     print("char: ", c)
     print(str)
     print(str[p1 + d])
