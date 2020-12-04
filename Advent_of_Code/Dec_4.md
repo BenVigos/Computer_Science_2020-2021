@@ -52,7 +52,7 @@ passports = [""]
 types = ["byr","iyr","eyr","hgt","hcl","ecl","pid","cid"]
 n = 0
 stage_1 = []
-tot = 0
+tot = 1
 banned = "g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
 eyes = "amb, blu, brn, gry, grn, hzl, oth"
 
