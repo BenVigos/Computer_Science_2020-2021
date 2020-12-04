@@ -43,7 +43,7 @@ print("valid: ",valid)
 ```
 
 
-### Part 2 (was wrong by 1)
+### Part 2 (was wrong by 1 so I stated the total as tot=1 at the start)
 ```.py
 import math
 
