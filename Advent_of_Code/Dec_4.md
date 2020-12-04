@@ -50,14 +50,11 @@ import math
 inp = open("input.txt", "r").readlines()
 passports = [""]
 types = ["byr","iyr","eyr","hgt","hcl","ecl","pid","cid"]
-org = []
 n = 0
 stage_1 = []
 tot = 0
-reg = 0
 banned = "g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
 eyes = "amb, blu, brn, gry, grn, hzl, oth"
-all = 0
 
 for line in inp:
     passports[n]+=line
@@ -170,4 +167,5 @@ print(stage_1)
 print(len(stage_1))
 print("total: ", tot)
 print("reg: ", reg)
+
 ```
