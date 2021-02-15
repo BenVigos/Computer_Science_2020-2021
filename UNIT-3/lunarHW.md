@@ -25,3 +25,7 @@ CREATE TABLE IF NOT EXISTS user_account_relationship(
 
 INSERT INTO user (name,date_of_birth,email) VALUES ('Ben Vigos', '23 Dec. 2003', 'kvig03@gmail.com');
 INSERT INTO account (password, account_type, last_login) VALUES ('passw0rd', 'student', '12 Feb. 2021 15:03');
+
+
+### ER Diagram
+![ER Diagram](/UNIT-3/photos%20and%20stuff/Lunar%20HW.png)
