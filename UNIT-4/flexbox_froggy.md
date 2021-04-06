@@ -1,4 +1,4 @@
-# These are the solution to the Flexbox Forggy game https://flexboxfroggy.com/
+# Solutions to the Flexbox Forggy https://flexboxfroggy.com/
 
 ### Levels
 1. justify-content: flex-end
