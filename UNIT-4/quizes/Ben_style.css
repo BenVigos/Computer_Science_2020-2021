@@ -1,0 +1,106 @@
+/*mystyle*/
+/*css stands for Cascade Stylesheets*/
+
+/*set all h1's to a specific style*/
+h1{
+    color:white;
+    font-family: "Open Sans";
+    font-size: xxx-large;
+    text-align: center;
+}
+
+h2{
+    color:black;
+    font-family: "Open Sans";
+    font-size: x-large;
+    text-align: center;
+}
+
+h3{
+    padding-bottom: 100px;
+    color:black;
+    font-family: "Open Sans";
+    font-size: medium;
+    text-align: center;
+}
+
+h4{
+    color: black;
+    font-family: "Open Sans";
+    font-size: xx-large;
+    text-align: center;
+}
+
+img{
+    padding-bottom: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div{
+    display: block;
+    font-size: xx-large;
+    text-align: center;
+}
+
+section{
+    font-size: x-large;
+}
+
+p{
+    color:white;
+    font-family: "Open Sans";
+    font-size: x-large;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+    height: 56.25%;
+    margin-top: 21.875%;
+}
+
+/*dot "." means class*/
+
+#subtitle{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*hashtag "#" means id*/
+#music{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: "Didot";
+}
+
+/*dot "." means class*/
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.b_border{
+    border-bottom: white 1px solid;
+    text-align: center;
+    padding-bottom: 0px;
+}
+.quiz_title {
+    border: none;
+    color: black;
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.section{
+    width: 50%;
+    height: 100%;
+}
