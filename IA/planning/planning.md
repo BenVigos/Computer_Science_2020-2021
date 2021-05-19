@@ -4,6 +4,10 @@ https://www.tensorflow.org/
 https://www.coursera.org/learn/neural-networks-deep-learning
 https://www.codecademy.com/catalog/language/html-css
 
+## course to buy
+https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/
+
+## Design criteria
 planning
 design
 dvelopment
